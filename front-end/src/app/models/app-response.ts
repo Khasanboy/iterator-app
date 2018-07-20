@@ -1,3 +1,8 @@
 export class AppResponse {
-    constructor(public activity: string, public activityUrl: string) {}
+    constructor(public activity: Activity, public activityUrl: string) {}
+}
+
+export enum Activity {
+    xhr = 'xhr',
+    redirect = 'redirect'
 }

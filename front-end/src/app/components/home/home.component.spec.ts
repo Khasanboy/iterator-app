@@ -3,7 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClientModule } from '@angular/common/http';
 import { Router, RouterModule } from '@angular/router';
 import { from } from 'rxjs';
-import { AppResponse } from '../../models/app-response';
+import { AppResponse, Activity } from '../../models/app-response';
 import { ApiService } from '../../services/api.service';
 import { LoaderComponent } from '../loader/loader.component';
 import { HomeComponent } from './home.component';
@@ -95,8 +95,8 @@ class MockLoaderComponent extends LoaderComponent {
 class MockApiService extends ApiService {
   getData(url?: string) {
     return from([
-      new AppResponse('xhr', 'example.com'),
-      new AppResponse('redirect', 'http://localhost:8080/api/search/71')
+      new AppResponse(Activity.xhr, 'example.com'),
+      new AppResponse(Activity.redirect, 'http://localhost:8080/api/search/71')
     ]);
   }
 }

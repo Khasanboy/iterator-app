@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ApiService {
 
-  private readonly offer_url = '/api/search/1';
+  private readonly offer_url = 'http://localhost:8080/api/search/1';
 
   constructor(private http: HttpClient) { }
 

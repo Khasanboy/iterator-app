@@ -1,6 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { AppResponse } from '../../models/app-response';
+import { AppResponse, Activity } from '../../models/app-response';
 import { ApiService } from '../../services/api.service';
 import { LoaderComponent } from '../loader/loader.component';
 
@@ -35,18 +35,12 @@ export class HomeComponent {
   }
 
   filterData(data: AppResponse) {
-    if (data.activity === 'xhr') {
-      // This line is used here to cut the string from 'http://localhost:8080/api/search/71 to only api/search/71
-      // as I am using proxy config file that contains the host
-      data.activityUrl = data.activityUrl.substr(21);
+    if (data.activity === Activity.xhr) {
       this.retrieveData(data.activityUrl);
-    } else if (data.activity === 'redirect') {
+    } else if (data.activity === Activity.redirect) {
       this.loaderComponent.close();
       this.loaderOpen = false;
-      // This line is used here to cut the string from 'http://localhost:8080/api/search/71 to only search/71 as
-      // I am using proxy config file that contains the host and i have rouing fot search/:id
-      data.activityUrl = data.activityUrl.substr(26);
-      this.router.navigate([data.activityUrl.toString()]);
+      this.router.navigate(['search/71']);
     }
   }
 }

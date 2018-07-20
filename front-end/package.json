@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --o --proxy-config proxy-config.json",
+    "start": "ng serve --o",
     "build": "ng build --prod",
     "postbuild": "npm run deploy",
     "predeploy": "rimraf ../backend/src/main/resources/static && mkdirp ../backend/src/main/resources/static",
